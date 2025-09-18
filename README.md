@@ -10,11 +10,11 @@ pip install cryptography
 
 
 Uso (exemplos):
-python app_mensagem_assinada.py gen --name sender
-python app_mensagem_assinada.py gen --name receiver
-python app_mensagem_assinada.py sign --key keys/sender_key.pem --msg "Olá mundo"
-python app_mensagem_assinada.py verify --cert keys/sender_cert.pem --msg "Olá mundo" --sig <signature-base64>
-python app_mensagem_assinada.py demo
+ - python app_mensagem_assinada.py gen --name sender
+ - python app_mensagem_assinada.py gen --name receiver
+ - python app_mensagem_assinada.py sign --key keys/sender_key.pem --msg "Olá mundo"
+ - python app_mensagem_assinada.py verify --cert keys/sender_cert.pem --msg "Olá mundo" --sig <signature-base64>
+ - python app_mensagem_assinada.py demo
 
 
 Arquivos gerados (por padrão em ./keys):
