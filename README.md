@@ -1,6 +1,5 @@
 # cripto
 
-"""
 Aplicação simples para envio de mensagens com assinatura digital (do remetente)
 Gera certificados ad-hoc (self-signed) para remetente e receptor e oferece funções
 para assinar, verificar, cifrar (opcional) e decifrar (opcional).
@@ -28,6 +27,3 @@ Descrição das operações:
 - sign: assina uma mensagem com a chave privada (PSS + SHA256)
 - verify: verifica assinatura com o certificado (público)
 - encrypt/decrypt (opcionais): cifram mensagens para o receptor com RSA-OAEP
-
-
-"""
