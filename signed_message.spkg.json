@@ -1,0 +1,27 @@
+{
+  "type": "SIGNED",
+  "created": 1758382237,
+  "sender": {
+    "cert": {
+      "version": 1,
+      "identity": {
+        "name": "Alice",
+        "email": "alice@example.com"
+      },
+      "alg": {
+        "sig": "ed25519",
+        "kex": "x25519",
+        "cipher": "chacha20poly1305"
+      },
+      "pubkeys": {
+        "sig": "tZY+I5L7M70dKfbUgKJcXptbJ17MTKT2NoRkIuTSzZ4=",
+        "kex": "dcuHEKmekDeoJu2aAOl55wqG339t7z/FpqMUQfDjByI="
+      },
+      "created": 1757810863,
+      "fingerprint": "4b46a55ef67775660fb70f3a4451b5cf3c1657495540a5d27c40d1efb11f0dd3",
+      "selfsig": "K8fJ/+xz/8nykFHrH/FGic0ytAvzlhBciRax36A0+EwNuc6TGXJ+Bgwo+VlZ0a0FHJKeg/4Vv3bzuBBi+gZFDg=="
+    }
+  },
+  "message": "bWVuc2FnZW0gZGUgYWxpY2U=",
+  "signature": "JN3ZNs9PnIS5k2H5u6diYunBtZUM0tM/GLV/ecXq+9Iv5HT+qiXZPIDs2UxdHsiqjgDXPSGjzduXgepv6M7dAw=="
+}

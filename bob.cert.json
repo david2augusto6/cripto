@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "identity": {
+    "name": "Bob",
+    "email": "bob@example.com"
+  },
+  "alg": {
+    "sig": "ed25519",
+    "kex": "x25519",
+    "cipher": "chacha20poly1305"
+  },
+  "pubkeys": {
+    "sig": "oJkToyIfaCKFRTmfwGIVsAeEtUC7xQCIJB47c/9Cluc=",
+    "kex": "g4bjm8hRbnkOvz+BvUxiPuDuEil58y6dPbHy7APcHzU="
+  },
+  "created": 1757810863,
+  "fingerprint": "910dc70f38eef6a74a916ff264a3a687020515bd6126b1493b43998e1b98c4d6",
+  "selfsig": "jRIlhJ2+qayEnPZ7QH7qLltqjbokKeWgyeIOoOKWBwP+c3hSinVKI2nj2cSktF5Ys1nrDqnjzuYQQdCWv713Cg=="
+}

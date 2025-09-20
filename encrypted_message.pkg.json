@@ -1,0 +1,38 @@
+{
+  "type": "ENCRYPTED",
+  "created": 1758386179,
+  "alg": {
+    "kdf": "HKDF-SHA256",
+    "cipher": "chacha20poly1305",
+    "kex": "x25519"
+  },
+  "sender": {
+    "cert": {
+      "version": 1,
+      "identity": {
+        "name": "Fulano",
+        "email": "fulano@example.com"
+      },
+      "alg": {
+        "sig": "ed25519",
+        "kex": "x25519",
+        "cipher": "chacha20poly1305"
+      },
+      "pubkeys": {
+        "sig": "EdcBBdq8Ie7+sTaI+Ej5VSYz6aMaymSheZFwz+9zszM=",
+        "kex": "tXJjguBf2oXsxhq4glhlXWtRxUzi7ovRiVbIpkqQhEo="
+      },
+      "created": 1758385041,
+      "fingerprint": "6edfc57e8c42bc8c579cce37a06433e551e92eac7a701417c5da2c5c7a406f6c",
+      "selfsig": "WkzxAgYdKMk7zeSArqcI7gdHAFi4XlVYABO/mJjyOdaFXpRCGfDCxTqPk21lF6LYSi+r/3fRFh4rQYGopQdICw=="
+    },
+    "eph_pub": "ZpTHGpNMsOfM2xKtoBL+Vet3BB7DRYoOt2Wo0ciOJGs="
+  },
+  "recipient": {
+    "fingerprint": "646a91ed54e34c70aa88acc1b76f1a3a5fff128e50a7a666a69556a5d5e32774"
+  },
+  "salt": "ltxbZ8Sqe4xG/k7oxCKG0A==",
+  "nonce": "coLKwPTKceGlSsda",
+  "ciphertext": "lUVzGgEMg/Drf4k0vUmwq+wLwCokoDrA",
+  "signature": "fmfJPzdTlOKImvoamWq9WzPULxV0l2HotFvHAqn3WcLptQwrSma1HTKZpRPPtO5vWtWXpHcdclSGkBodB1wpCg=="
+}

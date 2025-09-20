@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini PGP Web</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div id="login-page">
+        <h1>Login</h1>
+        <input type="email" id="login-email" placeholder="Digite seu e-mail" required>
+        <button id="login-button">Entrar</button>
+    </div>
+
+    <div id="user-page" class="hidden">
+        <h1>Bem-vindo, <span id="user-name"></span></h1>
+        <button id="view-messages-button">Ver Mensagens</button>
+        <button id="send-message-button">Enviar Mensagem</button>
+    </div>
+
+    <div id="messages-page" class="hidden">
+        <h2>Mensagens Recebidas</h2>
+        <ul id="received-messages"></ul>
+        <h2>Mensagens Enviadas</h2>
+        <ul id="sent-messages"></ul>
+        <button id="back-to-user-page">Voltar</button>
+    </div>
+
+    <div id="send-page" class="hidden">
+        <h2>Enviar Mensagem</h2>
+        <input type="email" id="recipient-email" placeholder="E-mail do destinatário" required>
+        <textarea id="message-text" placeholder="Digite sua mensagem"></textarea>
+        <button id="send-button">Enviar</button>
+        <button id="back-to-user-page-from-send">Voltar</button>
+    </div>
+
+    <script>
+        const loginPage = document.getElementById('login-page');
+        const userPage = document.getElementById('user-page');
+        const messagesPage = document.getElementById('messages-page');
+        const sendPage = document.getElementById('send-page');
+
+        const userNameSpan = document.getElementById('user-name');
+        const receivedMessagesList = document.getElementById('received-messages');
+        const sentMessagesList = document.getElementById('sent-messages');
+
+        let currentUserEmail = '';
+
+        document.getElementById('login-button').addEventListener('click', async () => {
+            const email = document.getElementById('login-email').value;
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            const data = await response.json();
+            if (data.success) {
+                currentUserEmail = email;
+                userNameSpan.textContent = data.name;
+                loginPage.classList.add('hidden');
+                userPage.classList.remove('hidden');
+            } else {
+                alert(data.error || 'Erro ao fazer login.');
+            }
+        });
+
+        document.getElementById('view-messages-button').addEventListener('click', async () => {
+            const receivedResponse = await fetch(`/messages/received/${currentUserEmail}`);
+            const sentResponse = await fetch(`/messages/sent/${currentUserEmail}`);
+            const receivedData = await receivedResponse.json();
+            const sentData = await sentResponse.json();
+
+            receivedMessagesList.innerHTML = receivedData.messages.map(
+                msg => `<li>De: ${msg.sender} - ${msg.message} (${msg.timestamp})</li>`
+            ).join('');
+            sentMessagesList.innerHTML = sentData.messages.map(
+                msg => `<li>Para: ${msg.recipient} - ${msg.message} (${msg.timestamp})</li>`
+            ).join('');
+
+            userPage.classList.add('hidden');
+            messagesPage.classList.remove('hidden');
+        });
+
+        document.getElementById('send-message-button').addEventListener('click', () => {
+            userPage.classList.add('hidden');
+            sendPage.classList.remove('hidden');
+        });
+
+        document.getElementById('send-button').addEventListener('click', async () => {
+            const recipient = document.getElementById('recipient-email').value;
+            const message = document.getElementById('message-text').value;
+            const response = await fetch('/send_message', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ sender: currentUserEmail, recipient, message })
+            });
+            const data = await response.json();
+            if (data.success) {
+                alert('Mensagem enviada com sucesso!');
+                document.getElementById('recipient-email').value = '';
+                document.getElementById('message-text').value = '';
+            } else {
+                alert(data.error || 'Erro ao enviar mensagem.');
+            }
+        });
+
+        document.getElementById('back-to-user-page').addEventListener('click', () => {
+            messagesPage.classList.add('hidden');
+            userPage.classList.remove('hidden');
+        });
+
+        document.getElementById('back-to-user-page-from-send').addEventListener('click', () => {
+            sendPage.classList.add('hidden');
+            userPage.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

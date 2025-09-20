@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "identity": {
+    "name": "Fulano",
+    "email": "fulano@example.com"
+  },
+  "alg": {
+    "sig": "ed25519",
+    "kex": "x25519",
+    "cipher": "chacha20poly1305"
+  },
+  "pubkeys": {
+    "sig": "EdcBBdq8Ie7+sTaI+Ej5VSYz6aMaymSheZFwz+9zszM=",
+    "kex": "tXJjguBf2oXsxhq4glhlXWtRxUzi7ovRiVbIpkqQhEo="
+  },
+  "created": 1758385041,
+  "fingerprint": "6edfc57e8c42bc8c579cce37a06433e551e92eac7a701417c5da2c5c7a406f6c",
+  "selfsig": "WkzxAgYdKMk7zeSArqcI7gdHAFi4XlVYABO/mJjyOdaFXpRCGfDCxTqPk21lF6LYSi+r/3fRFh4rQYGopQdICw=="
+}
